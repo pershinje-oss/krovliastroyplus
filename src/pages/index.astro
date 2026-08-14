@@ -93,6 +93,10 @@ const steps = [
   </main>
 
   <footer id="contacts"><div class="container footer-grid"><div class="brandfoot"><div class="brand"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></div><p>Профессиональные кровельные работы<br/>в Воронеже и области.<br/>Более 15 лет опыта. Качество и надёжность.</p></div><div><span class="footer-contact-icon phone-svg" role="img" aria-label="Телефон"></span><span>Иван<br/><a class="footer-phone" href="tel:+79202116311">+7 920 211-63-11</a></span></div><a class="footer-contact-link" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer"><img class="footer-social-icon" src="images/max-footer-icon-v2.png" alt="MAX"/><span>MAX<br/><b>Напишите в MAX</b></span></a><div><img class="footer-social-icon" src="images/vk-icon.png" alt="ВКонтакте"/><span>ВКонтакте<br/><b>Мы в соцсетях</b></span></div><div><span class="footer-contact-icon location-svg" role="img" aria-label="Местоположение"></span><span>Воронеж и область<br/><b>Работаем по всему региону</b></span></div></div><p class="copyright">© Кровля Строй +. Все права защищены.</p></footer>
+  <nav class="mobile-contact-bar" aria-label="Быстрая связь">
+    <a class="mobile-contact-button mobile-contact-call" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11"><span aria-hidden="true">☎</span>Позвонить</a>
+    <a class="mobile-contact-button mobile-contact-max" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer" aria-label="Написать в MAX"><img src="images/max-icon.png" alt="" aria-hidden="true"/>MAX</a>
+  </nav>
 </Layout>
 
 <style is:inline>
@@ -200,6 +204,18 @@ const steps = [
   .header{position:fixed!important;top:0;right:0;left:0;width:100%;z-index:100;transform:translateZ(0);backface-visibility:hidden;will-change:transform}
   @media(max-width:900px){html{scroll-padding-top:78px}body{padding-top:68px}}
   @media(max-width:600px){html{scroll-padding-top:72px}body{padding-top:62px}}
+  .mobile-contact-bar{display:none}
+  @media(max-width:600px){
+    body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+    .mobile-contact-bar{position:fixed;right:0;bottom:0;left:0;z-index:120;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.97);box-shadow:0 -5px 20px rgba(0,24,53,.2);transform:translateZ(0)}
+    .mobile-contact-button{min-width:0;min-height:52px;border-radius:9px;display:flex;align-items:center;justify-content:center;gap:9px;color:#fff;text-decoration:none;font-size:16px;font-weight:700;letter-spacing:.1px;box-shadow:0 3px 10px rgba(0,24,53,.2);transition:transform .16s ease,filter .16s ease;-webkit-tap-highlight-color:transparent}
+    .mobile-contact-button span{display:grid;place-items:center;width:27px;height:27px;color:#fff;font-size:21px;line-height:1}
+    .mobile-contact-call{background:#001835}
+    .mobile-contact-max{background:#f47920}
+    .mobile-contact-button img{display:block;width:27px;height:27px;border-radius:7px;object-fit:contain}
+    .mobile-contact-button:active{transform:scale(.97);filter:brightness(1.08)}
+    .mobile-contact-button:focus-visible{outline:3px solid #fff;outline-offset:-5px}
+  }
 </style>
 
 <script>
