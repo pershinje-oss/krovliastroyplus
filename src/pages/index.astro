@@ -196,9 +196,10 @@ const steps = [
   }
   /* Keep the main navigation visible on every screen size. */
   html{scroll-padding-top:86px}
-  .header{position:sticky!important;top:0;z-index:100}
-  @media(max-width:900px){html{scroll-padding-top:78px}}
-  @media(max-width:600px){html{scroll-padding-top:72px}}
+  body{padding-top:76px}
+  .header{position:fixed!important;top:0;right:0;left:0;width:100%;z-index:100;transform:translateZ(0);backface-visibility:hidden;will-change:transform}
+  @media(max-width:900px){html{scroll-padding-top:78px}body{padding-top:68px}}
+  @media(max-width:600px){html{scroll-padding-top:72px}body{padding-top:62px}}
 </style>
 
 <script>
