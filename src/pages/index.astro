@@ -181,8 +181,9 @@ const steps = [
     .steps article{width:100%;min-width:0}
     .maxbox{width:calc(100% - 24px);grid-template-columns:repeat(6,minmax(0,1fr));padding:22px 18px}
     .maxlogo{grid-column:span 1}
-    .maxintro{grid-column:span 5;min-width:0}
-    .maxintro h2{overflow-wrap:anywhere}
+    .maxintro{grid-column:span 5;min-width:0;padding-left:10px}
+    .maxintro h2{font-size:clamp(20px,5.8vw,25px);line-height:1.15;overflow-wrap:anywhere}
+    .maxintro p{line-height:1.45;overflow-wrap:anywhere}
     .maxbox>.maxfeature{grid-column:span 2;width:100%;min-width:0}
     .maxbox>.btn{grid-column:1/-1;width:100%;margin:0;padding-left:10px;padding-right:10px;white-space:normal;text-align:center}
     .footer-grid,.footer-grid>*{min-width:0;max-width:100%}
@@ -190,7 +191,7 @@ const steps = [
   @media(max-width:370px){
     .maxbox{grid-template-columns:repeat(3,minmax(0,1fr))}
     .maxlogo{grid-column:span 1}
-    .maxintro{grid-column:span 2}
+    .maxintro{grid-column:span 2;padding-left:8px}
     .maxbox>.maxfeature{grid-column:span 1}
   }
 </style>
