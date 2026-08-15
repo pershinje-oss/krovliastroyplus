@@ -43,7 +43,7 @@ const steps = [
       <a class="brand" href="#top" aria-label="Кровля Строй плюс"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
       <nav id="main-menu"><a href="#services">Услуги</a><a href="#works">Наши работы</a><a href="#about">О компании</a><a href="#contacts">Контакты</a></nav>
-      <a class="btn small" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a>
+      <a class="btn small" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить +7 920 211-63-11</a>
     </div>
   </header>
 
@@ -53,7 +53,7 @@ const steps = [
         <h1>Профессиональные<br/>кровельные работы<br/>любой сложности</h1>
         <p>Монтаж, ремонт и замена кровли. Металлочерепица,<br/>мягкая кровля, водостоки, утепление.</p>
         <p class="accent">Более 15 лет опыта в кровельных работах<br/>по Воронежу и области.</p>
-        <div class="actions"><a class="btn" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a><a class="btn ghost" href="#works">Посмотреть работы</a></div>
+        <div class="actions"><a class="btn" href="tel:+79202116311" aria-label="Набрать номер Ивана +7 920 211-63-11">Набрать номер</a><a class="btn ghost" href="#works">Посмотреть работы</a></div>
       </div>
     </section>
 
@@ -88,7 +88,7 @@ const steps = [
       {steps.map((s, i) => <article><i>{i + 1}</i><b><span class={`sprite i${s[0]}`}></span></b><strong>{s[1]}</strong><p>{s[2]}</p></article>)}
     </div></section>
 
-    <section class="container maxbox" id="max"><div class="maxlogo"><img src="images/max-icon.png" alt="MAX"/></div><div class="maxintro"><h2>Уточнить стоимость</h2><p>Напишите нам в MAX — ответим на вопросы,<br/>проконсультируем и рассчитаем стоимость вашей кровли.</p></div><div class="maxfeature"><span class="sprite i15"></span><span>Быстрый ответ<br/>в MAX</span></div><div class="maxfeature"><span class="sprite i16"></span><span>Подробная<br/>консультация</span></div><div class="maxfeature"><span class="sprite i17"></span><span>Расчёт стоимости<br/>под ваш проект</span></div><a class="btn" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a></section>
+    <section class="container maxbox" id="max"><div class="maxlogo"><img src="images/max-icon.png" alt="MAX"/></div><div class="maxintro"><h2>Уточнить стоимость</h2><p>Напишите нам в MAX — ответим на вопросы,<br/>проконсультируем и рассчитаем стоимость вашей кровли.</p></div><div class="maxfeature"><span class="sprite i15"></span><span>Быстрый ответ<br/>в MAX</span></div><div class="maxfeature"><span class="sprite i16"></span><span>Подробная<br/>консультация</span></div><div class="maxfeature"><span class="sprite i17"></span><span>Расчёт стоимости<br/>под ваш проект</span></div><div class="max-actions"><a class="btn" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a><a class="btn max-call-btn" href="tel:+79202116311" aria-label="Набрать номер Ивана +7 920 211-63-11">Набрать номер</a></div></section>
 
   </main>
 
@@ -227,6 +227,12 @@ const steps = [
   .works-carousel .carousel-button:disabled{transform:translateY(-50%)}
   @media(max-width:900px){.works-carousel{height:clamp(240px,38vw,320px);padding-right:50px;padding-left:50px}}
   @media(max-width:600px){.works-carousel{height:clamp(320px,88vw,450px);padding-right:42px;padding-left:42px}}
+  .max-actions{display:flex;flex:0 0 auto;flex-direction:column;gap:8px;min-width:230px}
+  .max-actions .btn{width:100%;min-height:44px;padding:11px 16px;text-align:center}
+  .max-call-btn{background:#001835;border:1px solid #fff}
+  .max-call-btn:hover{background:#001835;border-color:#f47920}
+  @media(max-width:900px){.max-actions{margin-left:auto}}
+  @media(max-width:600px){.max-actions{grid-column:1/-1;width:100%;min-width:0;margin:0}.max-actions .btn{width:100%;max-width:100%}}
 </style>
 
 <script>
