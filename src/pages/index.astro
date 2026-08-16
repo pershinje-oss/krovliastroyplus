@@ -36,8 +36,19 @@ const steps = [
   [12, 'Расчёт и смета', 'Готовим смету и фиксируем стоимость в договоре'], [13, 'Выполнение работ', 'Качественно выполняем кровельные работы'],
   [14, 'Сдача и гарантия', 'Сдаём объект и предоставляем гарантию на работы'],
 ];
+const workAreas = [
+  ['Белгородская область', 'Монтаж, ремонт и замена кровли.'],
+  ['Курская область', 'Выезжаем на частные дома и другие объекты.'],
+  ['Ростовская область', 'Работаем по области, в том числе в Донецке Ростовской области.'],
+  ['Краснодарский край', 'Кровельные работы по предварительной договорённости.'],
+  ['ДНР', 'Донецк • Макеевка • Горловка'],
+  ['Мариуполь', 'Выезд на кровельные работы по согласованию.'],
+];
 ---
-<Layout title="Кровля Строй + — кровельные работы в Воронеже">
+<Layout
+  title="Кровельные работы в Воронеже и области — ремонт, монтаж, замена | Кровля Строй +"
+  description="Кровельные работы в Воронеже и Воронежской области: монтаж, ремонт и замена кровли, шифер, профнастил, металлочерепица, мягкая кровля. Более 15 лет опыта. Узнайте стоимость работ."
+>
   <style is:inline>
     .desktop-call-float{position:fixed;right:24px;bottom:28px;z-index:110;width:64px;height:64px;border:0;border-radius:50%;display:grid;place-items:center;background:#f47920;box-shadow:0 7px 22px rgba(0,24,53,.32);transform:translateZ(0)}
     .desktop-call-message{position:fixed;right:103px;bottom:27px;z-index:109;display:flex;visibility:hidden;opacity:0;min-width:270px;padding:17px 22px;border:1px solid #f47920;border-radius:14px;flex-direction:column;align-items:flex-start;background:#f47920;box-shadow:0 9px 30px rgba(0,24,53,.28);transform:translateX(14px) scale(.96);transform-origin:right center;transition:opacity .22s ease,transform .28s ease,visibility 0s linear .28s}
@@ -65,18 +76,18 @@ const steps = [
   <main id="top">
     <section class="hero">
       <div class="container hero-copy">
-        <h1>Профессиональные<br/>кровельные работы<br/>любой сложности</h1>
-        <p>Монтаж, ремонт и замена кровли. Металлочерепица,<br/>мягкая кровля, водостоки, утепление.</p>
-        <p class="accent">Более 15 лет опыта в кровельных работах<br/>по Воронежу и области.</p>
+        <h1>Кровельные работы в Воронеже и Воронежской области</h1>
+        <p>Монтаж, ремонт и замена кровли частных домов. Работаем с шифером, профнастилом, металлочерепицей и мягкой кровлей.</p>
+        <p class="accent">Более 15 лет занимаемся кровельными работами. Поможем подобрать решение под состояние крыши и ваш бюджет.</p>
         <div class="actions"><a class="btn" href="tel:+79202116311" aria-label="Набрать номер Ивана +7 920 211-63-11">Набрать номер</a><a class="btn ghost" href="#works">Посмотреть работы</a></div>
       </div>
     </section>
 
     <section class="benefits" id="about"><div class="container benefit-grid">
-      <div><img class="benefit-icon" src="images/benefit-icons/benefit-1.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Только кровельные<br/>работы</strong><span>Узкая специализация — гарантия качества</span></p></div>
-      <div><img class="benefit-icon" src="images/benefit-icons/benefit-2.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Опыт более 15 лет</strong><span>Тысячи надёжных крыш в Воронеже и области</span></p></div>
-      <div><img class="benefit-icon" src="images/benefit-icons/benefit-3.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Гарантия на работы<br/>и материалы</strong><span>Официальная гарантия до 10 лет</span></p></div>
-      <div><img class="benefit-icon" src="images/benefit-icons/benefit-4.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Честные цены<br/>и смета под ключ</strong><span>Фиксируем стоимость в договоре</span></p></div>
+      <div><img class="benefit-icon" src="images/benefit-icons/benefit-1.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Только кровельные работы</strong><span>Монтаж, ремонт, замена и демонтаж кровли.</span></p></div>
+      <div><img class="benefit-icon" src="images/benefit-icons/benefit-2.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Более 15 лет опыта</strong><span>Работаем с шифером, профнастилом, металлочерепицей и мягкой кровлей.</span></p></div>
+      <div><img class="benefit-icon" src="images/benefit-icons/benefit-3.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Проверенные материалы</strong><span>Поможем подобрать надёжное покрытие под задачу и бюджет.</span></p></div>
+      <div><img class="benefit-icon" src="images/benefit-icons/benefit-4.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Понятная стоимость работ</strong><span>Сначала оцениваем объект и согласовываем объём работ и стоимость.</span></p></div>
     </div></section>
 
     <section class="section container services-section" id="services"><h2>Наши услуги</h2><div class="service-grid">
@@ -147,6 +158,9 @@ const steps = [
   .extra-service.extra-2{background-image:linear-gradient(0deg,rgba(0,24,53,.82),rgba(0,24,53,.1)),url('images/service-slate-dismantling.png?v=1');background-position:center 42%}
   .extra-service.extra-0{background-image:linear-gradient(0deg,rgba(0,24,53,.82),rgba(0,24,53,.1)),url('images/service-general-roof-repair.png?v=1');background-position:center 38%}
   .extra-service.extra-1{background-image:linear-gradient(0deg,rgba(0,24,53,.82),rgba(0,24,53,.1)),url('images/service-old-roof-dismantling.png?v=1');background-position:center 48%}
+  .extra-service.extra-3{background-image:linear-gradient(0deg,rgba(0,24,53,.82),rgba(0,24,53,.1)),url('images/service-slate-to-metal-tile.png?v=1');background-position:center 44%}
+  .extra-service.extra-4{background-image:linear-gradient(0deg,rgba(0,24,53,.82),rgba(0,24,53,.1)),url('images/service-slate-to-profiled-sheet.png?v=1');background-position:center 42%}
+  .extra-service.extra-5{background-image:linear-gradient(0deg,rgba(0,24,53,.82),rgba(0,24,53,.1)),url('images/service-metal-tile-installation.png?v=1');background-position:center 40%}
   .service .round{background:transparent;border:0;border-radius:0;width:54px;height:54px;top:17px;left:18px}
   .services-open{width:54px;height:38px;margin:16px auto -8px;display:grid;place-items:center;border:0;background:transparent;cursor:pointer;transition:transform .25s ease}.services-open span,.services-close span{display:block;width:20px;height:20px;border-right:4px solid currentColor;border-bottom:4px solid currentColor}.services-open span{color:#f47920;transform:rotate(45deg);animation:arrow-bounce 1.4s ease-in-out infinite}.services-open:hover{transform:scale(1.18)}.services-open:focus-visible,.services-close:focus-visible{outline:3px solid #f47920;outline-offset:4px}.services-overlay{position:fixed;inset:76px 0 0;z-index:50;visibility:hidden;pointer-events:none}.services-overlay__backdrop{position:absolute;inset:0;background:rgba(0,24,53,.72);opacity:0;transition:opacity .35s ease;backdrop-filter:blur(3px)}.services-overlay__panel{position:absolute;inset:0;background:#fff;overflow-y:auto;transform:translateY(35px);opacity:0;transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .3s ease}.services-overlay__inner{padding:28px 0 110px}.services-overlay h2{text-align:center;font-size:28px;margin:0 0 25px}.services-overlay h2:after{content:'';display:block;width:42px;height:3px;background:#f47920;margin:9px auto 0}.extra-services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.extra-service{height:190px;border-radius:5px;overflow:hidden;display:flex;align-items:flex-end;padding:20px;color:#fff;background-image:linear-gradient(0deg,rgba(0,24,53,.82),rgba(0,24,53,.1)),url('images/roof-hero.png');background-size:cover;opacity:0;transform:translateY(24px)}.extra-service h3{font-size:21px;margin:0 0 7px}.extra-service p{font-size:14px;line-height:1.4;margin:0}.extra-0{background-position:5% 45%}.extra-1{background-position:15% 70%}.extra-2{background-position:25% 45%}.extra-3{background-position:35% 70%}.extra-4{background-position:45% 45%}.extra-5{background-position:55% 70%}.extra-6{background-position:65% 45%}.extra-7{background-position:75% 70%}.extra-8{background-position:85% 45%}.extra-9{background-position:95% 70%}.extra-10{background-position:30% 85%}.extra-11{background-position:70% 85%}.services-close{position:fixed;left:50%;bottom:28px;z-index:52;width:62px;height:62px;border:0;border-radius:50%;background:#fff;color:#001835;box-shadow:0 8px 30px #00183566;display:grid;place-items:center;cursor:pointer;opacity:0;transform:translate(-50%,30px) scale(.7);transition:opacity .3s ease,transform .42s cubic-bezier(.22,1,.36,1),background .2s ease}.services-close span{transform:rotate(225deg)}.services-close:hover{background:#f47920;color:#fff;transform:translate(-50%,0) scale(1.08)}.services-overlay.is-open{visibility:visible;pointer-events:auto}.services-overlay.is-open .services-overlay__backdrop{opacity:1}.services-overlay.is-open .services-overlay__panel{opacity:1;transform:none}.services-overlay.is-open .services-close{opacity:1;transform:translate(-50%,0) scale(1)}.services-overlay.is-open .extra-service{animation:card-rise .45s both}.services-overlay.is-open .extra-service:nth-child(2){animation-delay:.04s}.services-overlay.is-open .extra-service:nth-child(3){animation-delay:.08s}.services-overlay.is-open .extra-service:nth-child(4){animation-delay:.12s}.services-overlay.is-open .extra-service:nth-child(5){animation-delay:.16s}.services-overlay.is-open .extra-service:nth-child(6){animation-delay:.2s}.services-overlay.is-open .extra-service:nth-child(7){animation-delay:.24s}.services-overlay.is-open .extra-service:nth-child(8){animation-delay:.28s}.services-overlay.is-open .extra-service:nth-child(9){animation-delay:.32s}.services-overlay.is-open .extra-service:nth-child(10){animation-delay:.36s}.services-overlay.is-open .extra-service:nth-child(11){animation-delay:.4s}.services-overlay.is-open .extra-service:nth-child(12){animation-delay:.44s}body.services-expanded{overflow:hidden}@keyframes arrow-bounce{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(4px,4px)}}@keyframes card-rise{to{opacity:1;transform:none}}@media(max-width:900px){.services-overlay{inset:0}.extra-services-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.extra-services-grid{grid-template-columns:1fr}.services-overlay__inner{padding-top:22px}.extra-service{height:165px}}
   /* Точный дизайн и центрирование кнопок раскрытия услуг. */
