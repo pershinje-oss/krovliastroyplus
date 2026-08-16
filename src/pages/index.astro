@@ -40,7 +40,9 @@ const steps = [
 <Layout title="Кровля Строй + — кровельные работы в Воронеже">
   <style is:inline>
     .desktop-call-float{position:fixed;right:24px;bottom:28px;z-index:110;width:64px;height:64px;border:0;border-radius:50%;display:grid;place-items:center;background:#f47920;box-shadow:0 7px 22px rgba(0,24,53,.32);transform:translateZ(0)}
-    .desktop-call-message{display:none}
+    .desktop-call-message{position:fixed;right:103px;bottom:31px;z-index:109;display:flex;visibility:hidden;opacity:0;min-width:235px;padding:13px 18px;border:1px solid rgba(0,24,53,.12);border-radius:12px;flex-direction:column;align-items:flex-start;background:#fff;box-shadow:0 9px 30px rgba(0,24,53,.28);transform:translateX(14px) scale(.96);transform-origin:right center;transition:opacity .22s ease,transform .28s ease,visibility 0s linear .28s}
+    .desktop-call-message::after{content:'';position:absolute;right:-8px;bottom:18px;width:15px;height:15px;background:#fff;border-top:1px solid rgba(0,24,53,.12);border-right:1px solid rgba(0,24,53,.12);transform:rotate(45deg)}
+    .desktop-call-widget[open] .desktop-call-message{visibility:visible;opacity:1;transform:none;transition:opacity .22s ease,transform .28s ease}
     @media(max-width:600px){.desktop-call-widget{display:none}}
   </style>
   <header class="header">
@@ -252,7 +254,7 @@ const steps = [
   .desktop-call-float svg{width:34px;height:34px;fill:none;stroke:#001835;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;transform-origin:center;animation:phone-ring 1.8s ease-in-out infinite}
   .desktop-call-float:hover{background:#ff8a30;box-shadow:0 9px 28px rgba(0,24,53,.4)}
   .desktop-call-float:focus-visible{outline:3px solid #001835;outline-offset:4px}
-  .desktop-call-message{position:fixed;right:104px;bottom:31px;z-index:109;display:flex;visibility:hidden;opacity:0;min-width:225px;padding:12px 18px;border:1px solid rgba(0,24,53,.12);border-radius:10px;flex-direction:column;background:#fff;box-shadow:0 8px 28px rgba(0,24,53,.25);transform:translateX(16px) scale(.96);transform-origin:right center;transition:opacity .22s ease,transform .28s cubic-bezier(.22,1,.36,1),visibility 0s linear .28s}
+  .desktop-call-message{position:fixed;right:103px;bottom:31px;z-index:109;display:flex;visibility:hidden;opacity:0;min-width:235px;padding:13px 18px;border:1px solid rgba(0,24,53,.12);border-radius:12px;flex-direction:column;align-items:flex-start;background:#fff;box-shadow:0 9px 30px rgba(0,24,53,.28);transform:translateX(14px) scale(.96);transform-origin:right center;transition:opacity .22s ease,transform .28s cubic-bezier(.22,1,.36,1),visibility 0s linear .28s}
   .desktop-call-message::after{content:'';position:absolute;right:-8px;bottom:18px;width:15px;height:15px;background:#fff;border-top:1px solid rgba(0,24,53,.12);border-right:1px solid rgba(0,24,53,.12);transform:rotate(45deg)}
   .desktop-call-message span{color:#5b6570;font-size:12px;line-height:1.2}
   .desktop-call-message a{position:relative;z-index:1;margin-top:3px;color:#001835;font-size:18px;font-weight:700;text-decoration:none;white-space:nowrap}
