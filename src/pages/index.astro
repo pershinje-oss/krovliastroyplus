@@ -38,6 +38,10 @@ const steps = [
 ];
 ---
 <Layout title="Кровля Строй + — кровельные работы в Воронеже">
+  <style is:inline>
+    .desktop-call-float{position:fixed;right:24px;bottom:28px;z-index:110;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#f47920;box-shadow:0 7px 22px rgba(0,24,53,.32);transform:translateZ(0)}
+    @media(max-width:600px){.desktop-call-float{display:none}}
+  </style>
   <header class="header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Кровля Строй плюс"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></a>
@@ -46,6 +50,10 @@ const steps = [
       <a class="btn small" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить +7 920 211-63-11</a>
     </div>
   </header>
+
+  <a class="desktop-call-float" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.7 2.8 9.4 2c.7-.2 1.4.2 1.7.9l1.2 3.2c.2.6 0 1.3-.5 1.7l-1.7 1.4a14.5 14.5 0 0 0 4.7 4.7l1.4-1.7c.4-.5 1.1-.7 1.7-.5l3.2 1.2c.7.3 1.1 1 1 1.7l-.9 2.7c-.3 1-1.2 1.7-2.2 1.7C10.7 19 5 13.3 5 6c0-1 .7-1.9 1.7-2.2Z"/></svg>
+  </a>
 
   <main id="top">
     <section class="hero">
@@ -93,9 +101,6 @@ const steps = [
   </main>
 
   <footer id="contacts"><div class="container footer-grid"><div class="brandfoot"><div class="brand"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></div><p>Профессиональные кровельные работы<br/>в Воронеже и области.<br/>Более 15 лет опыта. Качество и надёжность.</p></div><div><span class="footer-contact-icon phone-svg" role="img" aria-label="Телефон"></span><span>Иван<br/><a class="footer-phone" href="tel:+79202116311">+7 920 211-63-11</a></span></div><a class="footer-contact-link" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer"><img class="footer-social-icon" src="images/max-footer-icon-v2.png" alt="MAX"/><span>MAX<br/><b>Напишите в MAX</b></span></a><div><img class="footer-social-icon" src="images/vk-icon.png" alt="ВКонтакте"/><span>ВКонтакте<br/><b>Мы в соцсетях</b></span></div><div><span class="footer-contact-icon location-svg" role="img" aria-label="Местоположение"></span><span>Воронеж и область<br/><b>Работаем по всему региону</b></span></div></div><p class="copyright">© Кровля Строй +. Все права защищены.</p></footer>
-  <a class="desktop-call-float" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.7 2.8 9.4 2c.7-.2 1.4.2 1.7.9l1.2 3.2c.2.6 0 1.3-.5 1.7l-1.7 1.4a14.5 14.5 0 0 0 4.7 4.7l1.4-1.7c.4-.5 1.1-.7 1.7-.5l3.2 1.2c.7.3 1.1 1 1 1.7l-.9 2.7c-.3 1-1.2 1.7-2.2 1.7C10.7 19 5 13.3 5 6c0-1 .7-1.9 1.7-2.2Z"/></svg>
-  </a>
   <nav class="mobile-contact-bar" aria-label="Быстрая связь">
     <a class="mobile-contact-button mobile-contact-call" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11"><span aria-hidden="true">☎</span>Позвонить</a>
     <a class="mobile-contact-button mobile-contact-max" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer" aria-label="Написать в MAX"><img src="images/max-icon.png" alt="" aria-hidden="true"/>MAX</a>
@@ -236,7 +241,7 @@ const steps = [
   .max-call-btn:hover{background:#001835;border-color:#f47920}
   @media(max-width:900px){.max-actions{margin-left:auto}}
   @media(max-width:600px){.max-actions{grid-column:1/-1;width:100%;min-width:0;margin:0}.max-actions .btn{width:100%;max-width:100%}}
-  .desktop-call-float{position:fixed;top:50%;left:20px;z-index:95;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#f47920;color:#001835;text-decoration:none;box-shadow:0 7px 22px rgba(0,24,53,.32);transform:translateY(-50%) translateZ(0);isolation:isolate;-webkit-tap-highlight-color:transparent}
+  .desktop-call-float{position:fixed;right:24px;bottom:28px;left:auto;top:auto;z-index:110;width:64px;height:64px;border-radius:50%;display:grid;visibility:visible;opacity:1;place-items:center;background:#f47920;color:#001835;text-decoration:none;box-shadow:0 7px 22px rgba(0,24,53,.32);transform:translateZ(0);backface-visibility:hidden;isolation:isolate;will-change:transform;-webkit-tap-highlight-color:transparent}
   .desktop-call-float::before,.desktop-call-float::after{content:'';position:absolute;inset:0;z-index:-1;border:2px solid #f47920;border-radius:50%;animation:call-pulse 2s ease-out infinite}
   .desktop-call-float::after{animation-delay:1s}
   .desktop-call-float svg{width:34px;height:34px;fill:none;stroke:#001835;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;transform-origin:center;animation:phone-ring 1.8s ease-in-out infinite}
