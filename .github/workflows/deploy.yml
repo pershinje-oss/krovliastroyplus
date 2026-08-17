@@ -50,3 +50,4 @@ jobs:
           local-dir: ./dist/
           server-dir: ./
           log-level: minimal
+          timeout: 300000
