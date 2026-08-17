@@ -23,11 +23,13 @@ const extraServices = [
   ['Монтаж водосточной системы', 'Устанавливаем желоба, трубы и элементы отвода дождевой воды.'],
   ['Устранение протечек возле дымохода', 'Герметизируем примыкания и устраняем протечки вокруг дымохода.'],
 ];
-const works = Array.from({ length: 60 }, (_, index) => {
-  const number = index + 1;
-  const extension = number <= 9 || number === 17 ? 'jpg' : number <= 16 ? 'webp' : 'png';
-  return [`images/works-archive/work-${String(number).padStart(3, '0')}.${extension}`, 'center'];
-});
+const works: [string, string][] = Array.from(
+  { length: 19 },
+  (_, index): [string, string] => [
+    `images/works/work-${String(index + 1).padStart(3, '0')}.png`,
+    'center',
+  ],
+);
 const steps = [
   [10, 'Заявка', 'Вы оставляете заявку удобным способом'], [11, 'Выезд и замер', 'Бесплатный выезд специалиста на объект и точный замер'],
   [12, 'Расчёт и смета', 'Готовим смету и фиксируем стоимость в договоре'], [13, 'Выполнение работ', 'Качественно выполняем кровельные работы'],
@@ -100,11 +102,11 @@ const workAreas = [
     </section>
 
     <section class="section container works" id="works"><h2>Наши работы</h2><div class="works-carousel">
-      <button class="carousel-button carousel-prev" type="button" aria-label="Предыдущие работы"><span></span></button>
+      {works.length > 1 && <button class="carousel-button carousel-prev" type="button" aria-label="Предыдущие работы"><span></span></button>}
       <div class="work-track" tabindex="0" aria-label="Фотографии выполненных работ">
-        {works.map((w, index) => <article class="work-slide"><img class="work-photo" src={w[0]} alt={`Выполненная кровельная работа ${index + 1}`} loading="lazy" decoding="async"/></article>)}
+        {works.map((w, index) => <article class="work-slide"><img class="work-photo" src={w[0]} alt={`Выполненная кровельная работа ${index + 1}`} loading={index === 0 ? 'eager' : 'lazy'} decoding="async"/></article>)}
       </div>
-      <button class="carousel-button carousel-next" type="button" aria-label="Следующие работы"><span></span></button>
+      {works.length > 1 && <button class="carousel-button carousel-next" type="button" aria-label="Следующие работы"><span></span></button>}
     </div></section>
 
     <section class="section container process"><h2>Как мы работаем</h2><div class="steps">
@@ -285,7 +287,7 @@ const workAreas = [
   .work-track{width:100%;height:100%;gap:10px}
   .work-slide{flex:0 0 100%;min-width:100%;height:100%}
   .work-slide .work-photo{width:100%;height:100%;background-size:cover;background-repeat:no-repeat}
-  .work-slide img.work-photo{display:block;object-fit:cover;object-position:center}
+  .work-slide{background:#001835}.work-slide img.work-photo{display:block;object-fit:contain;object-position:center}
   .works-carousel .carousel-button{top:50%;transform:translateY(-50%)}
   .works-carousel .carousel-button:hover{transform:translateY(-50%) scale(1.08)}
   .works-carousel .carousel-button:active{transform:translateY(-50%) scale(.94)}
