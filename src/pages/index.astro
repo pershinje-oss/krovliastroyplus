@@ -111,6 +111,31 @@ const workAreas = [
       {steps.map((s, i) => <article><i>{i + 1}</i><b><span class={`sprite i${s[0]}`}></span></b><strong>{s[1]}</strong><p>{s[2]}</p></article>)}
     </div></section>
 
+    <section class="container social-hub" aria-labelledby="social-hub-title">
+      <div class="social-hub-heading">
+        <h2 id="social-hub-title">Дорогие клиенты и друзья!</h2>
+        <p>Подписывайтесь на наши площадки и оставляйте отзывы</p>
+      </div>
+      <div class="social-hub-grid">
+        <a class="social-hub-card social-vk" href="https://vk.ru/club240862938" target="_blank" rel="noopener noreferrer" aria-label="Открыть сообщество Кровля Строй плюс во ВКонтакте">
+          <span class="social-hub-icon"><img src="images/vk-icon.png" alt=""/></span>
+          <span><strong>ВКонтакте</strong><small>Новости и наши работы</small></span>
+          <i aria-hidden="true">›</i>
+        </a>
+        <a class="social-hub-card social-avito" href="https://www.avito.ru/brands/d5ec80d5603dd79f2cbab1683bd662ff/all/predlozheniya_uslug?gdlkerfdnwq=101&amp;page_from=from_item_card&amp;iid=8188865110&amp;sellerId=263aaddaba39b55ed832c34944827d0e" target="_blank" rel="noopener noreferrer" aria-label="Открыть объявления Кровля Строй плюс на Авито">
+          <span class="social-hub-icon avito-mark" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+          <span><strong>Авито</strong><small>Наши объявления</small></span>
+          <i aria-hidden="true">›</i>
+        </a>
+        <a class="social-hub-card social-yandex" href="https://yandex.ru/profile/237934494146" target="_blank" rel="noopener noreferrer" aria-label="Открыть профиль Кровля Строй плюс на Яндексе">
+          <span class="social-hub-icon yandex-mark" aria-hidden="true">Я</span>
+          <span><strong>Яндекс</strong><small>Профиль и отзывы</small></span>
+          <i aria-hidden="true">›</i>
+        </a>
+      </div>
+      <p class="social-hub-thanks">Спасибо за доверие и рекомендации!</p>
+    </section>
+
     <section class="container maxbox" id="max"><div class="maxlogo"><img src="images/max-icon.png" alt="MAX"/></div><div class="maxintro"><h2>Уточнить стоимость</h2><p>Напишите нам в MAX — ответим на вопросы,<br/>проконсультируем и рассчитаем стоимость вашей кровли.</p></div><div class="maxfeature"><span class="sprite i15"></span><span>Быстрый ответ<br/>в MAX</span></div><div class="maxfeature"><span class="sprite i16"></span><span>Подробная<br/>консультация</span></div><div class="maxfeature"><span class="sprite i17"></span><span>Расчёт стоимости<br/>под ваш проект</span></div><div class="max-actions"><a class="btn" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a><a class="btn max-call-btn" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить</a></div></section>
 
   </main>
@@ -267,6 +292,14 @@ const workAreas = [
   .works-carousel .carousel-button:disabled{transform:translateY(-50%)}
   @media(max-width:900px){.works-carousel{height:clamp(390px,65vw,540px);padding-right:50px;padding-left:50px}}
   @media(max-width:600px){.works-carousel{height:clamp(400px,105vw,540px);padding-right:42px;padding-left:42px}}
+  .social-hub{position:relative;isolation:isolate;overflow:hidden;margin-top:20px;margin-bottom:18px;padding:34px 38px 28px;border-radius:12px;background:radial-gradient(circle at 18% 20%,#0b3767 0,transparent 34%),linear-gradient(135deg,#001835 0%,#00244c 58%,#001835 100%);color:#fff;box-shadow:0 10px 28px rgba(0,24,53,.18)}
+  .social-hub::before,.social-hub::after{content:'';position:absolute;z-index:-1;width:190px;height:26px;background:#f47920;transform:rotate(56deg);box-shadow:0 0 0 1px rgba(255,255,255,.15)}
+  .social-hub::before{right:-56px;top:22px}.social-hub::after{right:-88px;top:76px;opacity:.5}
+  .social-hub-heading{text-align:center;max-width:760px;margin:0 auto 25px}.social-hub-heading h2{margin:0;font-size:clamp(29px,3.3vw,44px);line-height:1.05}.social-hub-heading h2::after{content:'';display:block;width:76px;height:4px;margin:14px auto;background:#f47920}.social-hub-heading p{margin:0;font-size:clamp(16px,1.7vw,22px);line-height:1.35;color:#e7eef6}
+  .social-hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.social-hub-card{min-width:0;min-height:132px;padding:20px;display:grid;grid-template-columns:70px minmax(0,1fr) 18px;align-items:center;gap:16px;border:1px solid #f47920;border-radius:12px;background:linear-gradient(135deg,rgba(13,58,103,.88),rgba(0,24,53,.92));color:#fff;text-decoration:none;box-shadow:inset 0 0 0 1px rgba(144,190,226,.28),0 7px 18px rgba(0,0,0,.16);transition:transform .22s ease,background .22s ease,box-shadow .22s ease}.social-hub-card:hover{transform:translateY(-5px);background:linear-gradient(135deg,#0c467d,#002449);box-shadow:0 13px 25px rgba(0,0,0,.25)}.social-hub-card:focus-visible{outline:3px solid #fff;outline-offset:3px}.social-hub-card>span:nth-child(2){min-width:0}.social-hub-card strong,.social-hub-card small{display:block}.social-hub-card strong{font-size:clamp(21px,2vw,29px);line-height:1.05}.social-hub-card small{margin-top:8px;color:#dce8f2;font-size:14px;line-height:1.3}.social-hub-card>i{font-style:normal;font-size:34px;color:#f47920;transition:transform .22s ease}.social-hub-card:hover>i{transform:translateX(4px)}
+  .social-hub-icon{width:70px;height:70px;border-radius:15px;display:grid;place-items:center;background:#fff;box-shadow:0 5px 14px rgba(0,0,0,.22)}.social-hub-icon img{display:block;width:52px;height:52px;object-fit:contain}.yandex-mark{background:#f47920;color:#fff;font:bold 45px/1 Arial}.avito-mark{grid-template-columns:repeat(2,17px);grid-template-rows:repeat(2,17px);gap:5px}.avito-mark b{display:block;width:17px;height:17px;border-radius:50%}.avito-mark b:nth-child(1){background:#965eeb}.avito-mark b:nth-child(2){background:#2a86ff}.avito-mark b:nth-child(3){background:#1eca67}.avito-mark b:nth-child(4){background:#ff5d65}.social-hub-thanks{text-align:center;margin:24px 0 0;color:#f47920;font-size:clamp(18px,2vw,26px);font-weight:700;font-style:italic}
+  @media(max-width:900px){.social-hub{padding:30px 25px 25px}.social-hub-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.social-hub-card{min-height:116px;padding:14px;grid-template-columns:54px minmax(0,1fr);gap:11px}.social-hub-card>i{display:none}.social-hub-icon{width:54px;height:54px;border-radius:12px}.social-hub-icon img{width:42px;height:42px}.social-hub-card strong{font-size:19px}.social-hub-card small{font-size:12px}.yandex-mark{font-size:35px}.avito-mark{grid-template-columns:repeat(2,13px);grid-template-rows:repeat(2,13px);gap:4px}.avito-mark b{width:13px;height:13px}}
+  @media(max-width:600px){.social-hub{margin-top:14px;padding:27px 17px 23px;border-radius:9px}.social-hub-heading{margin-bottom:20px}.social-hub-heading h2{font-size:28px}.social-hub-heading p{font-size:15px}.social-hub-grid{grid-template-columns:1fr;gap:12px}.social-hub-card{min-height:94px;padding:14px 17px;grid-template-columns:58px minmax(0,1fr) 16px}.social-hub-card>i{display:block}.social-hub-icon{width:58px;height:58px}.social-hub-card strong{font-size:21px}.social-hub-card small{font-size:13px}.social-hub-thanks{margin-top:19px;font-size:18px}}
   /* Fill the complete banner while keeping the roof inside the visible crop. */
   .hero{height:clamp(520px,32vw,620px);background:linear-gradient(90deg,rgba(0,24,53,.94) 0%,rgba(0,24,53,.7) 42%,rgba(0,24,53,.08) 76%),url('images/main-banner-house.png?v=1') center top/cover no-repeat}
   @media(max-width:900px){.hero{height:auto;min-height:500px;background-position:center top}}
