@@ -39,7 +39,47 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Upload site to REG.RU
+      - name: Upload site to REG.RU (attempt 1)
+        id: deploy_1
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftp
+          local-dir: ./dist/
+          server-dir: ./
+          log-level: minimal
+          timeout: 300000
+
+      - name: Wait before retry
+        if: steps.deploy_1.outcome == 'failure'
+        run: sleep 20
+
+      - name: Upload site to REG.RU (attempt 2)
+        id: deploy_2
+        if: steps.deploy_1.outcome == 'failure'
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftp
+          local-dir: ./dist/
+          server-dir: ./
+          log-level: minimal
+          timeout: 300000
+
+      - name: Wait before final retry
+        if: steps.deploy_2.outcome == 'failure'
+        run: sleep 40
+
+      - name: Upload site to REG.RU (attempt 3)
+        if: steps.deploy_2.outcome == 'failure'
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_HOST }}
