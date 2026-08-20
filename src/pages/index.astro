@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import RegionSwitcher from '../components/RegionSwitcher.astro';
 
 const services = [
   [4, 'Монтаж кровли под ключ', 'Подготовка основания, монтаж покрытия, доборных элементов и водостоков.'],
@@ -59,6 +60,7 @@ const workAreas = [
   <header class="header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Кровля Строй плюс"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></a>
+      <RegionSwitcher current="voronezh" />
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
       <nav id="main-menu"><a href="#services">Услуги</a><a href="#works">Наши работы</a><a href="#about">О компании</a><a href="#contacts">Контакты</a></nav>
       <a class="btn small" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить +7 920 211-63-11</a>
@@ -136,6 +138,12 @@ const workAreas = [
         </a>
       </div>
       <p class="social-hub-thanks">Спасибо за доверие и рекомендации!</p>
+    </section>
+
+    <section class="section container regions-section" aria-labelledby="regions-title">
+      <h2 id="regions-title">Работаем и в других регионах</h2>
+      <p>Выполняем кровельные работы не только в Воронежской области. Выезжаем на объекты в Донецке и других городах ДНР.</p>
+      <article class="region-card"><div><h3>Донецк и ДНР</h3><span>Ремонт · Монтаж · Замена кровли</span></div><a class="btn" href="/donetsk/">Подробнее</a></article>
     </section>
 
     <section class="container maxbox" id="max"><div class="maxlogo"><img src="images/max-icon.png" alt="MAX"/></div><div class="maxintro"><h2>Уточнить стоимость</h2><p>Напишите нам в MAX — ответим на вопросы,<br/>проконсультируем и рассчитаем стоимость вашей кровли.</p></div><div class="maxfeature"><span class="sprite i15"></span><span>Быстрый ответ<br/>в MAX</span></div><div class="maxfeature"><span class="sprite i16"></span><span>Подробная<br/>консультация</span></div><div class="maxfeature"><span class="sprite i17"></span><span>Расчёт стоимости<br/>под ваш проект</span></div><div class="max-actions"><a class="btn" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a><a class="btn max-call-btn" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить</a></div></section>
@@ -334,6 +342,9 @@ const workAreas = [
   @keyframes call-pulse{0%{opacity:.65;transform:scale(1)}75%,100%{opacity:0;transform:scale(1.55)}}
   @media(max-width:600px){.desktop-call-widget{display:none}}
   @media(prefers-reduced-motion:reduce){.desktop-call-message{transition:none!important}}
+  .regions-section{text-align:center;margin-top:28px;margin-bottom:28px;border:1px solid #e3e8ec;border-radius:9px;background:#f7f9fb}.regions-section>p{max-width:720px;margin:-8px auto 22px;color:#56616c;line-height:1.55}.region-card{max-width:650px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 25px;border-radius:8px;background:#001835;color:#fff;text-align:left}.region-card h3{margin:0 0 7px;font-size:22px}.region-card span{color:#d7e0e8;font-size:14px}.region-card .btn{flex:0 0 auto}
+  @media(max-width:900px){.nav :global(.region-switcher){margin-left:auto}.menu-toggle{margin-left:0!important}}
+  @media(max-width:600px){.nav :global(.region-switcher) summary{max-width:122px;overflow:hidden;text-overflow:ellipsis}.region-card{align-items:stretch;flex-direction:column;text-align:center}.region-card .btn{width:100%}}
 </style>
 
 <script>
