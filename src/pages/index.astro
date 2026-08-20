@@ -138,6 +138,15 @@ const workAreas = [
       <p class="social-hub-thanks">Спасибо за доверие и рекомендации!</p>
     </section>
 
+    <section class="container regions-banner" aria-labelledby="regions-banner-title">
+      <div class="regions-banner-photo"><img src="images/regions-donetsk-banner.png" alt="Дорога и указатель на Донецк" loading="lazy" decoding="async"/></div>
+      <div class="regions-banner-copy">
+        <h2 id="regions-banner-title">Работаем и в других регионах</h2>
+        <p>Выполняем кровельные работы не только в Воронежской области.<br/>Выезжаем на объекты в Донецке и других городах ДНР.</p>
+        <a class="btn regions-banner-button" href="#contacts">Подробнее о регионах</a>
+      </div>
+    </section>
+
     <section class="container maxbox" id="max"><div class="maxlogo"><img src="images/max-icon.png" alt="MAX"/></div><div class="maxintro"><h2>Уточнить стоимость</h2><p>Напишите нам в MAX — ответим на вопросы,<br/>проконсультируем и рассчитаем стоимость вашей кровли.</p></div><div class="maxfeature"><span class="sprite i15"></span><span>Быстрый ответ<br/>в MAX</span></div><div class="maxfeature"><span class="sprite i16"></span><span>Подробная<br/>консультация</span></div><div class="maxfeature"><span class="sprite i17"></span><span>Расчёт стоимости<br/>под ваш проект</span></div><div class="max-actions"><a class="btn" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a><a class="btn max-call-btn" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить</a></div></section>
 
   </main>
@@ -317,6 +326,11 @@ const workAreas = [
   .max-call-btn:hover{background:#001835;border-color:#f47920}
   @media(max-width:900px){.max-actions{margin-left:auto}}
   @media(max-width:600px){.max-actions{grid-column:1/-1;width:100%;min-width:0;margin:0}.max-actions .btn{width:100%;max-width:100%}}
+  .regions-banner{min-height:190px;margin-top:22px;margin-bottom:22px;display:grid;grid-template-columns:47% 53%;overflow:hidden;border-radius:9px;background:linear-gradient(110deg,#e5f1ff,#f8fbff);box-shadow:0 8px 24px rgba(0,24,53,.12)}
+  .regions-banner-photo{position:relative;overflow:hidden}.regions-banner-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 58%,#eaf4ff 100%)}.regions-banner-photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:left center}
+  .regions-banner-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:25px 42px;color:#001835}.regions-banner-copy h2{margin:0 0 14px;font-size:28px;line-height:1.15}.regions-banner-copy h2::after{content:'';display:block;width:38px;height:3px;margin-top:9px;background:#f47920}.regions-banner-copy p{margin:0 0 18px;font-size:14px;line-height:1.55}.regions-banner-button{background:#001835;padding:12px 20px}.regions-banner-button:hover{background:#f47920}
+  @media(max-width:900px){.regions-banner{grid-template-columns:43% 57%}.regions-banner-copy{padding:24px 28px}.regions-banner-copy h2{font-size:24px}}
+  @media(max-width:600px){.regions-banner{grid-template-columns:1fr;min-height:0}.regions-banner-photo{height:155px}.regions-banner-photo::after{background:linear-gradient(180deg,transparent 60%,#eaf4ff 100%)}.regions-banner-copy{align-items:center;padding:25px 20px 28px;text-align:center}.regions-banner-copy h2{font-size:24px}.regions-banner-copy h2::after{margin-left:auto;margin-right:auto}.regions-banner-copy p br{display:none}.regions-banner-button{width:100%}}
   .desktop-call-float{position:fixed;right:24px;bottom:28px;left:auto;top:auto;z-index:110;width:64px;height:64px;padding:0;border:0;border-radius:50%;display:grid;visibility:visible;opacity:1;place-items:center;background:#f47920;color:#001835;text-decoration:none;box-shadow:0 7px 22px rgba(0,24,53,.32);transform:translateZ(0);backface-visibility:hidden;isolation:isolate;will-change:transform;cursor:pointer;-webkit-tap-highlight-color:transparent}
   .desktop-call-float{list-style:none}.desktop-call-float::-webkit-details-marker{display:none}
   .desktop-call-float::before,.desktop-call-float::after{content:'';position:absolute;inset:0;z-index:-1;border:2px solid #f47920;border-radius:50%;animation:call-pulse 2s ease-out infinite}
