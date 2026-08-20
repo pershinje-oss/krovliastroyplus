@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RegionSwitcher from '../../components/RegionSwitcher.astro';
+
+const phoneHref = 'tel:+79202116311';
+const phone = '+7 920 211-63-11';
+const maxUrl = 'https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A';
+const services = [
+  ['Ремонт кровли','Устраняем протечки и повреждения кровельного покрытия. Выполняем локальный и капитальный ремонт.','/images/service-roof-repair.png'],
+  ['Замена старой кровли','Демонтируем старое покрытие, проверяем состояние основания и выполняем монтаж новой кровли.','/images/service-roof-replacement.png'],
+  ['Ремонт и замена шифера','Меняем повреждённые листы, ремонтируем шиферную кровлю или выполняем полную замену покрытия.','/images/service-slate-roof-repair.png'],
+  ['Замена шифера на профнастил','Демонтируем старый шифер, подготавливаем основание и монтируем кровлю из профнастила.','/images/service-slate-to-profiled-sheet.png'],
+  ['Замена шифера на металлочерепицу','Проверяем конструкцию крыши, подготавливаем обрешётку и устанавливаем новое покрытие.','/images/service-slate-to-metal-tile.png'],
+  ['Монтаж металлочерепицы','Монтаж металлочерепицы, коньков, примыканий и необходимых доборных элементов.','/images/service-metal-tile-installation.png'],
+  ['Монтаж кровли из профнастила','Подготовка основания и монтаж профнастила на частные дома и хозяйственные постройки.','/images/service-profiled-roof-installation.png'],
+  ['Монтаж мягкой кровли','Подготовка сплошного основания и устройство мягкого кровельного покрытия.','/images/service-soft-roof-installation.png'],
+  ['Устранение протечек','Находим причину протечки и ремонтируем проблемный участок кровли.','/images/service-chimney-leak-repair.png'],
+  ['Монтаж обрешётки','Устройство и ремонт обрешётки перед монтажом нового кровельного материала.','/images/service-roof-lathing-installation.png'],
+  ['Утепление кровли','Выполняем утепление кровельной конструкции с учётом устройства крыши.','/images/service-roof-insulation.png'],
+  ['Водосточная система','Монтаж и замена элементов водосточной системы.','/images/service-gutter-installation.png'],
+];
+const benefits = [
+  ['Только кровельные работы','Монтаж, ремонт, замена и демонтаж кровли.','/images/benefit-icons/benefit-1.png?v=2'],
+  ['Более 15 лет опыта','Работаем с шифером, профнастилом, металлочерепицей и мягкой кровлей.','/images/benefit-icons/benefit-2.png?v=2'],
+  ['Проверенные материалы','Поможем подобрать надёжное покрытие под задачу и бюджет.','/images/benefit-icons/benefit-3.png?v=2'],
+  ['Понятная стоимость работ','Сначала оцениваем объект и согласовываем объём работ и стоимость.','/images/benefit-icons/benefit-4.png?v=2'],
+];
+const steps = [['1','Заявка','Позвоните или напишите в MAX'],['2','Фото и выезд','Уточним задачу и состояние крыши'],['3','Расчёт','Согласуем объём и стоимость'],['4','Работы','Выполним кровельные работы'],['5','Сдача','Проверим результат вместе']];
+const faq = [
+  ['Сколько стоит ремонт крыши в Донецке?','Стоимость зависит от площади, материала, состояния покрытия и основания. Локальный ремонт и полная замена кровли отличаются по объёму работ, поэтому сначала необходимо уточнить задачу и состояние крыши.'],
+  ['Можно ли отремонтировать старый шифер без полной замены?','Да. Если основная часть покрытия и конструкция крыши находятся в нормальном состоянии, повреждённые листы можно заменить отдельно.'],
+  ['Можно ли заменить шифер на профнастил?','Да. После демонтажа шифера проверяем основание и подготавливаем кровлю под профнастил.'],
+  ['Можно ли заменить шифер на металлочерепицу?','Да. Перед монтажом проверяем состояние конструкции и подготавливаем основание под новое покрытие.'],
+  ['Помогаете ли подобрать материал?','Да. Помогаем подобрать проверенный материал с учётом конструкции крыши, задачи и бюджета.'],
+  ['Можно ли предварительно оценить работу по фотографии?','По фотографии можно предварительно понять характер работ. Точная стоимость определяется после уточнения площади и состояния кровли.'],
+];
+const works = Array.from({length:8},(_,i)=>`/images/works/work-${String(i+1).padStart(3,'0')}.webp`);
+---
+
+<Layout
+  title="Кровельные работы в Донецке — ремонт, монтаж и замена крыши | Кровля Строй +"
+  description="Кровельные работы в Донецке и ДНР: ремонт, монтаж и замена кровли, шифер, профнастил, металлочерепица и мягкая кровля. Более 15 лет опыта. Узнайте стоимость работ."
+  canonical="https://krovlya-stroy-plus.ru/donetsk/"
+  ogTitle="Кровельные работы в Донецке и ДНР | Кровля Строй +"
+  ogDescription="Ремонт, монтаж и замена кровли в Донецке и ДНР. Более 15 лет опыта."
+  ogImage="https://krovlya-stroy-plus.ru/images/main-banner-house-restored.webp"
+>
+  <header class="header"><div class="container nav">
+    <a class="brand" href="/donetsk/"><img src="/images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></a>
+    <RegionSwitcher current="donetsk" />
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="donetsk-menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    <nav id="donetsk-menu"><a href="#services">Услуги</a><a href="#works">Наши работы</a><a href="#process">Как работаем</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn header-call" href={phoneHref}>Позвонить {phone}</a>
+  </div></header>
+
+  <main>
+    <section class="hero"><div class="container hero-copy"><h1>Кровельные работы в Донецке и ДНР</h1><p>Монтаж, ремонт и замена кровли частных домов. Работаем с шифером, профнастилом, металлочерепицей и мягкой кровлей.</p><p class="accent">Более 15 лет занимаемся кровельными работами. Поможем подобрать решение под состояние крыши и ваш бюджет.</p><p class="photo-note">Можете отправить фотографию крыши — предварительно подскажем возможный вариант ремонта или замены.</p><div class="actions"><a class="btn" href={phoneHref}>Позвонить</a><a class="btn ghost" href="#works">Посмотреть работы</a></div></div></section>
+
+    <section class="benefits"><div class="container benefit-grid">{benefits.map(([title,text,image])=><article><img src={image} alt="" width="76" height="76"/><div><strong>{title}</strong><span>{text}</span></div></article>)}</div></section>
+
+    <section class="section container" id="services"><h2>Какие кровельные работы выполняем</h2><div class="service-grid">{services.map(([title,text,image])=><article class="service" style={`--image:url('${image}')`}><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section>
+
+    <section class="section advice"><div class="container advice-card"><span>Совет кровельщика</span><h2>Ремонтировать старую крышу или менять полностью?</h2><p>Не каждую старую кровлю необходимо полностью менять. Если основание находится в хорошем состоянии, а повреждения локальные, иногда достаточно заменить отдельные элементы покрытия и устранить причину протечки.</p><p>Если кровля сильно изношена, шифер начал разрушаться, обрешётка повреждена или крыша регулярно требует ремонта, часто разумнее один раз подготовить основание и установить новое покрытие.</p><p><strong>Поэтому стоимость кровельных работ зависит не только от площади крыши. Перед началом работ важно оценить состояние покрытия и конструкции.</strong></p></div></section>
+
+    <section class="section container slate"><div><h2>Работаем со старой шиферной кровлей</h2><p>Повреждение нескольких листов ещё не всегда означает, что крышу нужно полностью менять. Сначала оцениваем состояние покрытия и основания и предлагаем подходящий вариант.</p></div><ul><li>ремонт шиферной кровли;</li><li>замена отдельных листов;</li><li>демонтаж старого шифера;</li><li>монтаж нового шифера;</li><li>замена шифера на профнастил;</li><li>замена шифера на металлочерепицу.</li></ul></section>
+
+    <section class="section container" id="works"><h2>Примеры наших кровельных работ</h2><p class="lead">Реальные фотографии работ без неподтверждённых адресов и географических подписей.</p><div class="portfolio">{works.map((image,i)=><img src={image} alt={i%2?'Монтаж кровли частного дома':'Замена старой кровли'} loading="lazy" decoding="async"/>)}</div></section>
+
+    <section class="section process" id="process"><div class="container"><h2>Как мы работаем</h2><div class="steps">{steps.map(([number,title,text])=><article><i>{number}</i><strong>{title}</strong><p>{text}</p></article>)}</div></div></section>
+
+    <section class="section geography"><div class="container"><h2>Работаем по Донецку и другим городам ДНР</h2><p>Основное направление этой страницы — Донецк. Также выезжаем на кровельные работы в другие города ДНР. Возможность выезда, сроки и объём работ обсуждаем заранее.</p><div class="cities"><span>Донецк</span><span>Макеевка</span><span>Горловка</span><span>Мариуполь</span></div></div></section>
+
+    <section class="section container faq" id="faq"><h2>Частые вопросы о кровельных работах</h2><div>{faq.map(([question,answer])=><details><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+
+    <section class="container maxbox"><img src="/images/max-icon.png" alt="MAX"/><div><h2>Не знаете, ремонтировать крышу или менять?</h2><p>Позвоните или отправьте фотографии крыши. Предварительно посмотрим, какой вариант может подойти, и сориентируем по дальнейшим действиям.</p></div><div class="cta-buttons"><a class="btn" href={phoneHref}>Позвонить</a><a class="btn ghost" href={maxUrl} target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a></div></section>
+    <div class="back-link">Другой регион: <a href="/">Кровельные работы в Воронеже и Воронежской области</a></div>
+  </main>
+
+  <footer id="contacts"><div class="container footer-grid"><div class="brandfoot"><div class="brand"><img src="/images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></div><p>Кровельные работы в Донецке и ДНР.<br/>Более 15 лет опыта.</p></div><div><strong>Иван</strong><a href={phoneHref}>{phone}</a></div><div><strong>MAX</strong><a href={maxUrl} target="_blank" rel="noopener noreferrer">Напишите в MAX</a></div><div><strong>Регион</strong><span>Донецк и ДНР</span></div></div><p class="copyright">© Кровля Строй +. Все права защищены.</p></footer>
+  <nav class="mobile-bar" aria-label="Быстрая связь"><a href={phoneHref}>Позвонить</a><a href={maxUrl} target="_blank" rel="noopener noreferrer">MAX</a></nav>
+</Layout>
+
+<style>
+  :global(*){box-sizing:border-box}:global(html){scroll-behavior:smooth}:global(body){margin:0;color:#001835;background:#fff;font-family:Arial,Helvetica,sans-serif}.container{width:min(1180px,calc(100% - 40px));margin:auto}.header{position:sticky;top:0;z-index:100;height:76px;background:#001835;color:#fff}.nav{height:100%;display:flex;align-items:center;gap:20px}.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-size:22px;white-space:nowrap}.brand img{width:80px;height:48px;object-fit:contain}.nav nav{display:flex;gap:20px}.nav nav a{color:#fff;text-decoration:none;font-size:13px}.nav nav a:hover{color:#f47920}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 20px;border-radius:5px;background:#f47920;color:#fff;text-decoration:none;font-weight:700;box-shadow:0 3px 8px #0002;transition:.2s}.btn:hover{background:#ff8a30;transform:translateY(-2px)}.header-call{margin-left:auto;white-space:nowrap}.menu-toggle{display:none}.hero{min-height:570px;color:#fff;background:linear-gradient(90deg,rgba(0,24,53,.96),rgba(0,24,53,.72) 49%,rgba(0,24,53,.12)),url('/images/main-banner-house-restored.webp') center top/cover no-repeat}.hero-copy{padding:68px 0 55px;max-width:780px;margin-left:max(20px,calc((100vw - 1180px)/2))}.hero h1{margin:0 0 20px;font-size:50px;line-height:1.08}.hero p{font-size:18px;line-height:1.5}.hero .accent{color:#ffae75;font-weight:700}.photo-note{padding-left:14px;border-left:3px solid #f47920}.actions{display:flex;gap:14px;margin-top:24px}.ghost{background:transparent;border:1px solid #fff}.benefits{border-bottom:1px solid #e4e8eb}.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:22px 0}.benefit-grid article{display:flex;align-items:center;gap:13px;padding:8px 15px;border-right:1px solid #e1e5e8}.benefit-grid article:last-child{border:0}.benefit-grid img{object-fit:contain;flex:0 0 76px}.benefit-grid strong,.benefit-grid span{display:block}.benefit-grid span{margin-top:7px;color:#59636c;font-size:12px;line-height:1.35}.section{padding:46px 0;border-bottom:1px solid #eceff1}.section h2,.maxbox h2{margin:0 0 27px;text-align:center;font-size:30px}.section h2:after{content:'';display:block;width:48px;height:3px;margin:10px auto 0;background:#f47920}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.service{min-height:220px;display:flex;align-items:flex-end;padding:19px;overflow:hidden;border-radius:6px;color:#fff;background:linear-gradient(0deg,rgba(0,24,53,.95),rgba(0,24,53,.18)),var(--image) center/cover no-repeat}.service h3{margin:0 0 8px;font-size:20px}.service p{margin:0;font-size:13px;line-height:1.4}.advice{background:#f3f6f9}.advice-card{padding:34px 42px;border-left:6px solid #f47920;border-radius:8px;background:#fff;box-shadow:0 10px 30px #00183512}.advice-card>span{display:inline-block;padding:7px 10px;border-radius:4px;background:#001835;color:#fff;font-weight:700}.advice-card h2{text-align:left}.advice-card h2:after{margin-left:0}.advice-card p{line-height:1.65}.slate{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center}.slate h2{text-align:left}.slate h2:after{margin-left:0}.slate p,.slate li{line-height:1.6}.slate ul{columns:2;margin:0;padding:25px 25px 25px 45px;border-radius:8px;background:#001835;color:#fff}.lead{margin:-13px 0 24px;text-align:center;color:#59636c}.portfolio{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.portfolio img{width:100%;height:185px;display:block;object-fit:cover;border-radius:5px}.process{background:#f7f9fb}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.steps article{text-align:center}.steps i{width:38px;height:38px;display:grid;place-items:center;margin:0 auto 12px;border-radius:50%;background:#001835;color:#fff;font-style:normal;font-weight:700}.steps strong{font-size:16px}.steps p{color:#59636c;font-size:13px;line-height:1.4}.geography{background:#001835;color:#fff;text-align:center}.geography p{max-width:790px;margin:0 auto 24px;line-height:1.6}.cities{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.cities span{padding:10px 18px;border:1px solid #f47920;border-radius:999px}.faq>div{max-width:900px;margin:auto}.faq details{border-bottom:1px solid #dfe4e8}.faq summary{padding:19px 4px;cursor:pointer;font-size:17px;font-weight:700}.faq details p{margin:0;padding:0 4px 21px;color:#505c67;line-height:1.6}.maxbox{margin-top:30px;margin-bottom:30px;padding:28px;display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:25px;border-radius:9px;background:#001835;color:#fff}.maxbox>img{width:86px;height:86px;object-fit:contain}.maxbox h2{text-align:left;margin:0 0 8px;font-size:26px}.maxbox p{margin:0;line-height:1.5}.cta-buttons{display:flex;flex-direction:column;gap:8px}.back-link{padding:18px;text-align:center;background:#f1f4f6}.back-link a{color:#001835;font-weight:700}footer{padding:28px 0 17px;background:#001835;color:#fff}.footer-grid{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:28px;align-items:center}.footer-grid>div:not(:first-child){display:flex;flex-direction:column;gap:5px}.footer-grid a{color:#fff}.footer-grid span{color:#d7e0e7}.brandfoot p{font-size:13px;line-height:1.5}.copyright{text-align:center;color:#cad6df;font-size:12px}.mobile-bar{display:none}
+  @media(max-width:1000px){.header-call{display:none}.nav nav{gap:12px}.nav nav a{font-size:12px}.benefit-grid{grid-template-columns:repeat(2,1fr)}.benefit-grid article:nth-child(2){border-right:0}.portfolio{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}.brandfoot{grid-column:1/-1}}
+  @media(max-width:760px){:global(body){padding-bottom:62px}.container{width:min(100% - 24px,1180px)}.header,.nav{height:64px}.brand{font-size:16px}.brand img{width:59px;height:38px}.menu-toggle{order:3;width:40px;height:40px;display:grid;place-content:center;gap:5px;border:0;background:transparent}.menu-toggle span{width:25px;height:2px;display:block;background:#fff}.nav nav{position:absolute;top:64px;left:0;right:0;display:none;padding:12px;background:#001835}.nav nav.is-open{display:grid}.nav nav a{padding:10px;font-size:15px}.hero{min-height:620px;background-position:59% top}.hero-copy{margin:0;padding:52px 18px 42px}.hero h1{font-size:34px}.hero p{font-size:16px}.actions{flex-direction:column}.actions .btn{width:100%}.benefit-grid{grid-template-columns:1fr}.benefit-grid article{border-right:0;border-bottom:1px solid #e1e5e8}.service-grid{grid-template-columns:1fr}.service{min-height:205px}.section{padding:34px 0}.section h2{font-size:25px}.advice-card{padding:25px 21px}.slate{grid-template-columns:1fr;gap:20px}.slate ul{columns:1}.portfolio{grid-template-columns:1fr}.portfolio img{height:auto;max-height:340px;object-fit:contain;background:#f2f4f6}.steps{grid-template-columns:1fr 1fr}.maxbox{width:calc(100% - 24px);grid-template-columns:65px 1fr;padding:22px 17px;gap:17px}.maxbox>img{width:64px;height:64px}.maxbox h2{font-size:21px}.cta-buttons{grid-column:1/-1}.footer-grid{grid-template-columns:1fr}.brandfoot{grid-column:auto}.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:120;height:62px;display:grid;grid-template-columns:1fr 1fr}.mobile-bar a{display:grid;place-items:center;color:#fff;text-decoration:none;font-weight:700}.mobile-bar a:first-child{background:#001835}.mobile-bar a:last-child{background:#f47920}}
+</style>
+
+<script>
+  const toggle=document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu=document.querySelector<HTMLElement>('#donetsk-menu');
+  toggle?.addEventListener('click',()=>{const open=!menu?.classList.contains('is-open');menu?.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));});
+  menu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>menu.classList.remove('is-open')));
+</script>
