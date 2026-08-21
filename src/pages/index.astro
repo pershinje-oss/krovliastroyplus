@@ -43,10 +43,28 @@ const workAreas = [
   ['ДНР', 'Донецк • Макеевка • Горловка'],
   ['Мариуполь', 'Выезд на кровельные работы по согласованию.'],
 ];
+
+interface Props { region?: 'voronezh' | 'donetsk' }
+const { region = 'voronezh' } = Astro.props;
+const isDonetsk = region === 'donetsk';
+const pageTitle = isDonetsk
+  ? 'Кровельные работы в Донецке — ремонт, монтаж и замена крыши | Кровля Строй +'
+  : 'Кровельные работы в Воронеже и области — ремонт, монтаж, замена | Кровля Строй +';
+const pageDescription = isDonetsk
+  ? 'Кровельные работы в Донецке и ДНР: ремонт, монтаж и замена кровли, шифер, профнастил, металлочерепица и мягкая кровля. Более 15 лет опыта. Узнайте стоимость работ.'
+  : 'Кровельные работы в Воронеже и Воронежской области: монтаж, ремонт и замена кровли, шифер, профнастил, металлочерепица, мягкая кровля. Более 15 лет опыта. Узнайте стоимость работ.';
+const canonical = isDonetsk
+  ? 'https://krovlya-stroy-plus.ru/donetsk/'
+  : 'https://krovlya-stroy-plus.ru/';
+const localLink = (hash: string) => isDonetsk ? `/donetsk/${hash}` : hash;
 ---
 <Layout
-  title="Кровельные работы в Воронеже и области — ремонт, монтаж, замена | Кровля Строй +"
-  description="Кровельные работы в Воронеже и Воронежской области: монтаж, ремонт и замена кровли, шифер, профнастил, металлочерепица, мягкая кровля. Более 15 лет опыта. Узнайте стоимость работ."
+  title={pageTitle}
+  description={pageDescription}
+  canonical={canonical}
+  baseHref={isDonetsk ? '/' : undefined}
+  ogTitle={pageTitle}
+  ogDescription={pageDescription}
 >
   <style is:inline>
     .desktop-call-float{position:fixed;right:24px;bottom:28px;z-index:110;width:64px;height:64px;border:0;border-radius:50%;display:grid;place-items:center;background:#f47920;box-shadow:0 7px 22px rgba(0,24,53,.32);transform:translateZ(0)}
@@ -58,9 +76,9 @@ const workAreas = [
   </style>
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Кровля Строй плюс"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></a>
+      <a class="brand" href={localLink('#top')} aria-label="Кровля Строй плюс"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
-      <nav id="main-menu"><a href="#services">Услуги</a><a href="#works">Наши работы</a><a href="#about">О компании</a><a href="#contacts">Контакты</a></nav>
+      <nav id="main-menu"><a href={localLink('#services')}>Услуги</a><a href={localLink('#works')}>Наши работы</a><a href={localLink('#about')}>О компании</a><a href={localLink('#contacts')}>Контакты</a><a class="region-nav-link" href={isDonetsk ? '/' : '/donetsk/'}>{isDonetsk ? 'Воронеж' : 'Донецк'}</a></nav>
       <a class="btn small" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить +7 920 211-63-11</a>
     </div>
   </header>
@@ -75,10 +93,10 @@ const workAreas = [
   <main id="top">
     <section class="hero">
       <div class="container hero-copy">
-        <h1>Кровельные работы в Воронеже и Воронежской области</h1>
+        <h1>{isDonetsk ? 'Кровельные работы в Донецке и ДНР' : 'Кровельные работы в Воронеже и Воронежской области'}</h1>
         <p>Монтаж, ремонт и замена кровли частных домов. Работаем с шифером, профнастилом, металлочерепицей и мягкой кровлей.</p>
         <p class="accent">Более 15 лет занимаемся кровельными работами. Поможем подобрать решение под состояние крыши и ваш бюджет.</p>
-        <div class="actions"><a class="btn" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить</a><a class="btn ghost" href="#works">Посмотреть работы</a></div>
+        <div class="actions"><a class="btn" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить</a><a class="btn ghost" href={localLink('#works')}>Посмотреть работы</a></div>
       </div>
     </section>
 
@@ -88,6 +106,12 @@ const workAreas = [
       <div><img class="benefit-icon" src="images/benefit-icons/benefit-3.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Проверенные материалы</strong><span>Поможем подобрать надёжное покрытие под задачу и бюджет.</span></p></div>
       <div><img class="benefit-icon" src="images/benefit-icons/benefit-4.png?v=2" alt="" width="83" height="83" style="width:83px;height:83px;object-fit:contain;display:block;flex:0 0 83px"/><p><strong>Понятная стоимость работ</strong><span>Сначала оцениваем объект и согласовываем объём работ и стоимость.</span></p></div>
     </div></section>
+
+    {isDonetsk && <section class="section container regional-intro" aria-labelledby="donetsk-intro-title">
+      <h2 id="donetsk-intro-title">Кровельные работы для домов в Донецке и ДНР</h2>
+      <p>Выполняем ремонт, монтаж и полную замену кровли частных домов и хозяйственных построек. Работаем с шифером, профнастилом, металлочерепицей и мягкими кровельными материалами.</p>
+      <p>Перед началом работ оцениваем состояние покрытия и основания, согласовываем необходимый объём работ и помогаем подобрать подходящее решение под задачу и бюджет.</p>
+    </section>}
 
     <section class="section container services-section" id="services"><h2>Наши услуги</h2><div class="service-grid">
       {services.map((s, i) => <article class={`service s${i}`}><div><h3>{s[1]}</h3><p>{s[2]}</p></div></article>)}
@@ -138,20 +162,20 @@ const workAreas = [
       <p class="social-hub-thanks">Спасибо за доверие и рекомендации!</p>
     </section>
 
-    <section class="container regions-banner" aria-labelledby="regions-banner-title">
+    {!isDonetsk && <section class="container regions-banner" aria-labelledby="regions-banner-title">
       <div class="regions-banner-photo"><img src="images/regions-donetsk-banner.webp" alt="Дорога и указатель на Донецк" loading="lazy" decoding="async"/></div>
       <div class="regions-banner-copy">
         <h2 id="regions-banner-title">Работаем и в других регионах</h2>
         <p>Выполняем кровельные работы не только в Воронежской области.<br/>Выезжаем на объекты в Донецке и других городах ДНР.</p>
-        <a class="btn regions-banner-button" href="#contacts">Подробнее о регионах</a>
+        <a class="btn regions-banner-button" href="/donetsk/">Подробнее о регионах</a>
       </div>
-    </section>
+    </section>}
 
     <section class="container maxbox" id="max"><div class="maxlogo"><img src="images/max-icon.png" alt="MAX"/></div><div class="maxintro"><h2>Уточнить стоимость</h2><p>Напишите нам в MAX — ответим на вопросы,<br/>проконсультируем и рассчитаем стоимость вашей кровли.</p></div><div class="maxfeature"><span class="sprite i15"></span><span>Быстрый ответ<br/>в MAX</span></div><div class="maxfeature"><span class="sprite i16"></span><span>Подробная<br/>консультация</span></div><div class="maxfeature"><span class="sprite i17"></span><span>Расчёт стоимости<br/>под ваш проект</span></div><div class="max-actions"><a class="btn" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer">Уточнить стоимость в MAX</a><a class="btn max-call-btn" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11">Позвонить</a></div></section>
 
   </main>
 
-  <footer id="contacts"><div class="container footer-grid"><div class="brandfoot"><div class="brand"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></div><p>Профессиональные кровельные работы<br/>в Воронеже и области.<br/>Более 15 лет опыта. Качество и надёжность.</p></div><div><span class="footer-contact-icon phone-svg" role="img" aria-label="Телефон"></span><span>Иван<br/><a class="footer-phone" href="tel:+79202116311">+7 920 211-63-11</a></span></div><a class="footer-contact-link" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer"><img class="footer-social-icon" src="images/max-footer-icon-v2.png" alt="MAX"/><span>MAX<br/><b>Напишите в MAX</b></span></a><div><img class="footer-social-icon" src="images/vk-icon.png" alt="ВКонтакте"/><span>ВКонтакте<br/><b>Мы в соцсетях</b></span></div><div><span class="footer-contact-icon location-svg" role="img" aria-label="Местоположение"></span><span>Воронеж и область<br/><b>Работаем по всему региону</b></span></div></div><p class="copyright">© Кровля Строй +. Все права защищены.</p></footer>
+  <footer id="contacts"><div class="container footer-grid"><div class="brandfoot"><div class="brand"><img class="brand-logo" src="images/logo-krovlya.png" alt="Логотип Кровля Строй плюс"/><strong>Кровля Строй +</strong></div><p>Профессиональные кровельные работы<br/>{isDonetsk ? 'в Донецке и ДНР.' : 'в Воронеже и области.'}<br/>Более 15 лет опыта. Качество и надёжность.</p></div><div><span class="footer-contact-icon phone-svg" role="img" aria-label="Телефон"></span><span>Иван<br/><a class="footer-phone" href="tel:+79202116311">+7 920 211-63-11</a></span></div><a class="footer-contact-link" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer"><img class="footer-social-icon" src="images/max-footer-icon-v2.png" alt="MAX"/><span>MAX<br/><b>Напишите в MAX</b></span></a><div><img class="footer-social-icon" src="images/vk-icon.png" alt="ВКонтакте"/><span>ВКонтакте<br/><b>Мы в соцсетях</b></span></div><div><span class="footer-contact-icon location-svg" role="img" aria-label="Местоположение"></span><span>{isDonetsk ? 'Донецк и ДНР' : 'Воронеж и область'}<br/><b>Работаем по всему региону</b></span></div></div><p class="copyright">© Кровля Строй +. Все права защищены.</p></footer>
   <nav class="mobile-contact-bar" aria-label="Быстрая связь">
     <a class="mobile-contact-button mobile-contact-call" href="tel:+79202116311" aria-label="Позвонить Ивану по номеру +7 920 211-63-11"><span aria-hidden="true">☎</span>Позвонить</a>
     <a class="mobile-contact-button mobile-contact-max" href="https://max.ru/u/f9LHodD0cOJqLcMP3FbJaKl8EmVlN1m9yWeDXsfwCbYhnD9CC50KMyQBK4A" target="_blank" rel="noopener noreferrer" aria-label="Написать в MAX"><img src="images/max-icon.png" alt="" aria-hidden="true"/>MAX</a>

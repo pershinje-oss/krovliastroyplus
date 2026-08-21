@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://krovlya-stroy-plus.ru/sitemap.xml
