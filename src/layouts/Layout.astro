@@ -1,19 +1,8 @@
 ---
-interface Props {
-  title?: string;
-  description?: string;
-  canonical?: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  ogImage?: string;
-}
+interface Props { title?: string; description?: string }
 const {
   title = 'Кровля Строй +',
   description = 'Профессиональные кровельные работы в Воронеже и области',
-  canonical = 'https://krovlya-stroy-plus.ru/',
-  ogTitle = title,
-  ogDescription = description,
-  ogImage = 'https://krovlya-stroy-plus.ru/images/main-banner-house-restored.webp',
 } = Astro.props;
 ---
 <!doctype html>
@@ -22,13 +11,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={ogDescription} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4" />
     <title>{title}</title>
     <!-- Yandex.Metrika counter -->
     <script is:inline>
