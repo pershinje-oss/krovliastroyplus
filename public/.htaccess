@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Use one canonical host for search engines and advertising statistics.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.krovlya-stroy-plus\.ru$ [NC]
+RewriteRule ^ https://krovlya-stroy-plus.ru%{REQUEST_URI} [R=301,L]
+
+# Serve Astro's generated directory pages consistently.
+DirectoryIndex index.html

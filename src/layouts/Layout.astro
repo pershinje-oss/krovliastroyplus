@@ -6,6 +6,7 @@ interface Props {
   baseHref?: string;
   ogTitle?: string;
   ogDescription?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 const {
   title = 'Кровля Строй +',
@@ -14,6 +15,7 @@ const {
   baseHref,
   ogTitle = title,
   ogDescription = description,
+  structuredData,
 } = Astro.props;
 ---
 <!doctype html>
@@ -29,6 +31,7 @@ const {
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content="https://krovlya-stroy-plus.ru/images/main-banner-house-restored.webp" />
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4" />
     <title>{title}</title>
     <!-- Yandex.Metrika counter -->

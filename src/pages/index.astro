@@ -57,6 +57,53 @@ const canonical = isDonetsk
   ? 'https://krovlya-stroy-plus.ru/donetsk/'
   : 'https://krovlya-stroy-plus.ru/';
 const localLink = (hash: string) => isDonetsk ? `/donetsk/${hash}` : hash;
+const regionName = isDonetsk ? 'Донецк и ДНР' : 'Воронеж и Воронежская область';
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'RoofingContractor',
+    name: 'Кровля Строй +',
+    url: canonical,
+    telephone: '+7 920 211-63-11',
+    image: 'https://krovlya-stroy-plus.ru/images/main-banner-house-restored.webp',
+    description: pageDescription,
+    areaServed: regionName,
+    sameAs: [
+      'https://vk.ru/club240862938',
+      'https://yandex.ru/profile/237934494146',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `Какие кровельные работы выполняете в ${isDonetsk ? 'Донецке' : 'Воронеже'}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Выполняем монтаж, ремонт, замену и демонтаж кровли, устраняем протечки, монтируем обрешётку, утепление и водосточную систему.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'С какими кровельными материалами вы работаете?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Работаем с шифером, профнастилом, металлочерепицей и мягкой кровлей.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Как узнать стоимость кровельных работ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Позвоните или напишите в MAX. Итоговая стоимость зависит от состояния крыши, площади, выбранного материала и необходимого объёма работ.',
+        },
+      },
+    ],
+  },
+];
 ---
 <Layout
   title={pageTitle}
@@ -65,6 +112,7 @@ const localLink = (hash: string) => isDonetsk ? `/donetsk/${hash}` : hash;
   baseHref={isDonetsk ? '/' : undefined}
   ogTitle={pageTitle}
   ogDescription={pageDescription}
+  structuredData={structuredData}
 >
   <style is:inline>
     .desktop-call-float{position:fixed;right:24px;bottom:28px;z-index:110;width:64px;height:64px;border:0;border-radius:50%;display:grid;place-items:center;background:#f47920;box-shadow:0 7px 22px rgba(0,24,53,.32);transform:translateZ(0)}
@@ -111,6 +159,20 @@ const localLink = (hash: string) => isDonetsk ? `/donetsk/${hash}` : hash;
       <h2 id="donetsk-intro-title">Кровельные работы для домов в Донецке и ДНР</h2>
       <p>Выполняем ремонт, монтаж и полную замену кровли частных домов и хозяйственных построек. Работаем с шифером, профнастилом, металлочерепицей и мягкими кровельными материалами.</p>
       <p>Перед началом работ оцениваем состояние покрытия и основания, согласовываем необходимый объём работ и помогаем подобрать подходящее решение под задачу и бюджет.</p>
+      <div class="regional-details">
+        <article>
+          <h3>Ремонт и устранение протечек</h3>
+          <p>Осматриваем покрытие, примыкания, коньки и участки возле дымохода. После осмотра определяем причину протечки и предлагаем необходимый ремонт без навязывания лишних работ. Возможна замена отдельных повреждённых листов шифера или участков другого покрытия.</p>
+        </article>
+        <article>
+          <h3>Замена и монтаж кровли</h3>
+          <p>Демонтируем старое покрытие, проверяем обрешётку и при необходимости заменяем повреждённые элементы. Монтируем шифер, профнастил, металлочерепицу и мягкую кровлю, устанавливаем доборные элементы и водосточную систему.</p>
+        </article>
+        <article>
+          <h3>Как заказать работы в Донецке</h3>
+          <p>Позвоните Ивану по номеру <a href="tel:+79202116311">+7 920 211-63-11</a> или напишите в MAX. Расскажите, какая проблема возникла с крышей, и при возможности приложите фотографии. Сроки, выезд и стоимость согласуем с учётом объекта и объёма работ.</p>
+        </article>
+      </div>
     </section>}
 
     <section class="section container services-section" id="services"><h2>Наши услуги</h2><div class="service-grid">
@@ -136,6 +198,15 @@ const localLink = (hash: string) => isDonetsk ? `/donetsk/${hash}` : hash;
     <section class="section container process"><h2>Как мы работаем</h2><div class="steps">
       {steps.map((s, i) => <article><i>{i + 1}</i><b><span class={`sprite i${s[0]}`}></span></b><strong>{s[1]}</strong><p>{s[2]}</p></article>)}
     </div></section>
+
+    <section class="section container seo-faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Вопросы о кровельных работах в {isDonetsk ? 'Донецке' : 'Воронеже'}</h2>
+      <div class="faq-list">
+        <details><summary>Какие виды кровельных работ вы выполняете?</summary><p>Выполняем монтаж, ремонт, замену и демонтаж кровли, ремонтируем шиферные крыши, устраняем протечки, монтируем обрешётку, утепление и водосточные системы.</p></details>
+        <details><summary>С какими материалами вы работаете?</summary><p>Работаем с шифером, профнастилом, металлочерепицей и мягкой кровлей. Подходящий материал и состав работ выбираются после оценки состояния крыши и задач заказчика.</p></details>
+        <details><summary>Можно ли заранее назвать точную стоимость?</summary><p>Точная стоимость зависит от площади, состояния покрытия и основания, материала и сложности работ. Позвоните или напишите в MAX — обсудим задачу и порядок оценки объекта.</p></details>
+      </div>
+    </section>
 
     <section class="container social-hub" aria-labelledby="social-hub-title">
       <div class="social-hub-heading">
@@ -372,6 +443,9 @@ const localLink = (hash: string) => isDonetsk ? `/donetsk/${hash}` : hash;
   @keyframes call-pulse{0%{opacity:.65;transform:scale(1)}75%,100%{opacity:0;transform:scale(1.55)}}
   @media(max-width:600px){.desktop-call-widget{display:none}}
   @media(prefers-reduced-motion:reduce){.desktop-call-message{transition:none!important}}
+  .regional-intro>p{max-width:920px;margin:0 auto 13px;color:#3f4e5d;font-size:15px;line-height:1.65}.regional-details{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}.regional-details article{padding:20px;border:1px solid #dfe6ec;border-radius:8px;background:#f8fbfe}.regional-details h3{margin:0 0 9px;font-size:18px}.regional-details p{margin:0;color:#455564;font-size:14px;line-height:1.55}.regional-details a{color:#001835;font-weight:700}.seo-faq{padding-top:28px;padding-bottom:30px}.faq-list{display:grid;gap:10px;max-width:920px;margin:auto}.faq-list details{border:1px solid #dfe6ec;border-radius:7px;background:#fff}.faq-list summary{position:relative;padding:16px 48px 16px 18px;cursor:pointer;font-weight:700;list-style:none}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary::after{content:'+';position:absolute;right:18px;top:50%;color:#f47920;font-size:25px;transform:translateY(-50%)}.faq-list details[open] summary::after{content:'−'}.faq-list p{margin:0;padding:0 18px 17px;color:#4a5967;font-size:14px;line-height:1.55}
+  @media(max-width:900px){.regional-details{grid-template-columns:1fr}.regional-details article{padding:18px}}
+  @media(max-width:600px){.regional-intro>p{font-size:14px}.regional-details{gap:11px;margin-top:17px}.seo-faq{padding-top:24px}.faq-list summary{padding:15px 44px 15px 15px}.faq-list p{padding:0 15px 15px}}
 </style>
 
 <script>
@@ -435,6 +509,25 @@ const localLink = (hash: string) => isDonetsk ? `/donetsk/${hash}` : hash;
   });
   window.addEventListener('resize', () => {
     if (window.innerWidth > 900) setMenuOpen(false);
+  });
+
+  const metricGoalForLink = (link: HTMLAnchorElement) => {
+    const href = link.href;
+    if (href.startsWith('tel:')) return 'phone_click';
+    if (href.includes('max.ru/')) return 'max_click';
+    if (href.includes('vk.ru/')) return 'vk_click';
+    if (href.includes('avito.ru/')) return 'avito_click';
+    if (href.includes('yandex.ru/profile/')) return 'yandex_profile_click';
+    if (link.classList.contains('regions-banner-button') || link.classList.contains('region-nav-link')) return 'region_page_click';
+    return '';
+  };
+  document.addEventListener('click', (event) => {
+    const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a');
+    if (!link) return;
+    const goal = metricGoalForLink(link);
+    if (!goal) return;
+    const metrika = (window as Window & { ym?: (...args: unknown[]) => void }).ym;
+    metrika?.(111659052, 'reachGoal', goal);
   });
 
 </script>
