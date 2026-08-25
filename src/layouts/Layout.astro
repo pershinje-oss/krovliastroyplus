@@ -40,11 +40,11 @@ const {
     <aside class="cookie-consent" data-cookie-consent hidden role="dialog" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-text">
       <div>
         <strong id="cookie-consent-title">Использование файлов cookie</strong>
-        <p id="cookie-consent-text">Мы используем Яндекс Метрику только с вашего согласия, чтобы понимать, как посетители пользуются сайтом. Подробнее — в <a href="/privacy/">политике обработки персональных данных</a>.</p>
+        <p id="cookie-consent-text">Мы используем необходимые cookie для работы сайта. С вашего согласия Яндекс Метрика используется для анализа посещаемости и эффективности рекламы. Подробнее — в <a href="/privacy/">политике обработки персональных данных</a>.</p>
       </div>
       <div class="cookie-consent__actions">
-        <button type="button" data-cookie-reject>Отказаться</button>
-        <button class="cookie-consent__accept" type="button" data-cookie-accept>Разрешить</button>
+        <button type="button" data-cookie-reject>Только необходимые</button>
+        <button class="cookie-consent__accept" type="button" data-cookie-accept>Принять аналитику</button>
       </div>
     </aside>
     <style is:inline>
@@ -81,6 +81,14 @@ const {
         banner?.querySelector('[data-cookie-reject]')?.addEventListener('click', () => {
           saveConsent('rejected');
           banner.hidden = true;
+          if (window.__krovlyaMetrikaLoaded) location.reload();
+        });
+        document.addEventListener('click', (event) => {
+          const trigger = event.target.closest('[data-cookie-settings]');
+          if (!trigger || !banner) return;
+          event.preventDefault();
+          banner.hidden = false;
+          banner.querySelector('[data-cookie-accept]')?.focus();
         });
       })();
     </script>
